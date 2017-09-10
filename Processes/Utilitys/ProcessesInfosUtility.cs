@@ -12,7 +12,7 @@ namespace Processes.Utilitys
         public void LoadProcessesNames()
         {
             IEnumerable<Process> procList = Process.GetProcesses()
-                .OrderBy(n => n.ProcessName);
+                .OrderBy(p => p.ProcessName).Where(p => p.ProcessName != "Idle");
 
             _processDetails = procList.Select(process =>
             {
