@@ -35,7 +35,7 @@ namespace Processes.Services
 
             _performancePage = new PerformanceCounter("Paging File", "% Usage", instanceName, machineName);
             _performanceCPU = new PerformanceCounter("Processor", "% Processor Time", instanceName, machineName);
-            _performanceRAM = new PerformanceCounter("Memory", "Available MBytes", String.Empty, machineName);
+            _performanceRAM = new PerformanceCounter("Memory", "Committed Bytes", String.Empty, machineName);
             //_performanceRAM = new PerformanceCounter("Memory", "% Committed Bytes In Use", String.Empty, machineName);
 
             _performancesNic = GetNICCounters();
@@ -83,7 +83,7 @@ namespace Processes.Services
 
                         _processInfo.ProcessCPU = String.Format("{0:##0}%", _performanceCPU.NextValue());
                         _processInfo.ProcessPage = String.Format("{0:##0}%", _performancePage.NextValue());
-                        _processInfo.ProcessRAM = String.Format("{0} MB", _performanceRAM.NextValue());
+                        _processInfo.ProcessRAM = String.Format("{0} MB", (int)(_performanceRAM.NextValue() / 1024 / 1024));
                         //_processInfo.ProcessRAM = String.Format("{0:##0}%", ramCounter.NextValue());
                     }
                     else
