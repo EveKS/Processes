@@ -35,6 +35,7 @@
             this.tSRAM = new System.Windows.Forms.ToolStripStatusLabel();
             this.tSPage = new System.Windows.Forms.ToolStripStatusLabel();
             this.sSStatusBar = new System.Windows.Forms.StatusStrip();
+            this.tSCPUUserTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.sSStatusBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.tSCPU.Name = "tSCPU";
             this.tSCPU.Size = new System.Drawing.Size(40, 17);
             this.tSCPU.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tSCPU.ToolTipText = "CPU Utilization";
+            this.tSCPU.ToolTipText = "CPU Process : % Processor Time";
             // 
             // tSRAM
             // 
@@ -85,7 +86,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.tSPage.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
             this.tSPage.Name = "tSPage";
-            this.tSPage.Size = new System.Drawing.Size(65, 17);
+            this.tSPage.Size = new System.Drawing.Size(60, 17);
             this.tSPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tSPage.ToolTipText = "Page File Usage";
             // 
@@ -93,8 +94,9 @@
             // 
             this.sSStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tSCPU,
-            this.tSRAM,
-            this.tSPage});
+            this.tSCPUUserTime,
+            this.tSPage,
+            this.tSRAM});
             this.sSStatusBar.Location = new System.Drawing.Point(0, 28);
             this.sSStatusBar.Name = "sSStatusBar";
             this.sSStatusBar.ShowItemToolTips = true;
@@ -102,6 +104,18 @@
             this.sSStatusBar.SizingGrip = false;
             this.sSStatusBar.TabIndex = 3;
             this.sSStatusBar.Text = "statusStrip";
+            // 
+            // tSCPUUserTime
+            // 
+            this.tSCPUUserTime.AutoSize = false;
+            this.tSCPUUserTime.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tSCPUUserTime.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+            this.tSCPUUserTime.Name = "tSCPUUserTime";
+            this.tSCPUUserTime.Size = new System.Drawing.Size(65, 17);
+            this.tSCPUUserTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tSCPUUserTime.ToolTipText = "CPU Process : % User Time";
             // 
             // ProcessInfoControl
             // 
@@ -125,5 +139,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tSRAM;
         private System.Windows.Forms.ToolStripStatusLabel tSPage;
         private System.Windows.Forms.StatusStrip sSStatusBar;
+        private System.Windows.Forms.ToolStripStatusLabel tSCPUUserTime;
     }
 }

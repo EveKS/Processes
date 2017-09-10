@@ -11,6 +11,7 @@ namespace Processes.Models
         public int ID { get; set; }
         public string ProcessName { get; set; }
         public string ProcessCPU { get; set; }
+        public string ProcessCPUUserTime { get; set; }
         public string ProcessRAM { get; set; }
         public string ProcessPage { get; set; }
         public IList<ProcessNic> ProcessNics { get; set; }

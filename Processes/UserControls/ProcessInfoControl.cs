@@ -44,18 +44,21 @@ namespace Processes.UserControls
             set
             {
                 var settextCPU = new Action(() => { tSCPU.Text = value.ProcessCPU; });
+                var settextCPUUserTime = new Action(() => { tSCPUUserTime.Text = value.ProcessCPUUserTime; });
                 var settextRAM = new Action(() => { tSRAM.Text = value.ProcessRAM; });
                 var settextPage = new Action(() => { tSPage.Text = value.ProcessPage; });
 
                 if (sSStatusBar.InvokeRequired)
                 {
                     sSStatusBar.Invoke(settextCPU);
+                    sSStatusBar.Invoke(settextCPUUserTime);
                     sSStatusBar.Invoke(settextRAM);
                     sSStatusBar.Invoke(settextPage);
                 }
                 else
                 {
                     settextCPU();
+                    settextCPUUserTime();
                     settextRAM();
                     settextPage();
                 }

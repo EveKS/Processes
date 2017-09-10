@@ -18,6 +18,7 @@ namespace Processes.Services
         private ProcessInfo _processInfo;
 
         private PerformanceCounter _performanceCPU;
+        private PerformanceCounter _performanceCPUUserTime;
         private PerformanceCounter _performanceRAM;
         private PerformanceCounter _performancePage;
         private PerformanceCounter[] _performancesNic;
@@ -46,6 +47,7 @@ namespace Processes.Services
 
             _performancePage = new PerformanceCounter("Process", "IO Data Bytes/sec", instanceName);
             _performanceCPU = new PerformanceCounter("Process", "% Processor Time", instanceName);
+            _performanceCPUUserTime = new PerformanceCounter("Process", "% User Time", instanceName);
             _performanceRAM = new PerformanceCounter("Process", "Working Set - Private", instanceName);
         }
 
@@ -87,6 +89,7 @@ namespace Processes.Services
                     else
                     {
                         _processInfo.ProcessCPU = String.Format("{0:0.0}%", _performanceCPU.NextValue() / Environment.ProcessorCount);
+                        _processInfo.ProcessCPUUserTime = String.Format("{0:0.0}%", _performanceCPUUserTime.NextValue() / Environment.ProcessorCount);
                         _processInfo.ProcessPage = String.Format("{0:####0KB/s}", _performancePage.NextValue() / 1024);
                         _processInfo.ProcessRAM = String.Format("{0:0.0} MB",
                             Convert.ToDouble(_performanceRAM.NextValue()) / 1024 / 1024);
