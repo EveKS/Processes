@@ -2,11 +2,10 @@
 
 namespace Processes.Managers
 {
-    interface ITimeManager
+    public interface ITimeManager : IDisposable
     {
         event EventHandler Tick;
 
-        void Dispose();
         void Start();
         void Stop();
     }

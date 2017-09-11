@@ -5,6 +5,10 @@ using Processes.Models;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using Processes.Managers;
+using System.Collections.Generic;
+using System.Threading;
+using System.Reflection;
 
 namespace ProcessesTests
 {
@@ -101,6 +105,34 @@ namespace ProcessesTests
             var removeProcess = processDetailService.GetRemoveProcess();
 
             Assert.IsTrue(removeProcess == null || typeof(ProcessDetails[]) == removeProcess.GetType());
+        }
+        #endregion
+
+        #region TimeManager
+        [TestMethod()]
+        public void TimeManagerIsDisposable()
+        {
+            using (ITimeManager timeManager = new TimeManager())
+            {
+                Assert.IsInstanceOfType(timeManager, typeof(IDisposable));
+            }
+        }
+
+        [TestMethod()]
+        public void TimeManagerEvent()
+        {
+            using (ITimeManager timeManager = new TimeManager(1))
+            {
+                //timeManager.Start();
+
+                //var test = false;
+                //timeManager.Tick += (sender, e) =>
+                // {
+                //     test = true;
+                // };
+
+                //Assert.IsTrue(test);
+            }
         }
         #endregion
     }

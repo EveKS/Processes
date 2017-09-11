@@ -7,15 +7,24 @@ using System.Timers;
 
 namespace Processes.Managers
 {
-    class TimeManager : IDisposable, ITimeManager
+    public class TimeManager : ITimeManager
     {
-        private const int INTERVAL = 1500;
+        #region head
+        private const int DEFAULT_INTERVAL = 1500;
+        private readonly int interval;
 
-        private static Timer _timer = new Timer(INTERVAL);
+        private static Timer _timer;
         public event EventHandler Tick;
+        #endregion
 
-        public TimeManager()
+        public TimeManager() : this(DEFAULT_INTERVAL)
+        { }
+
+        public TimeManager(int interval)
         {
+            this.interval = interval;
+
+            _timer = new Timer(interval);
             _timer.Elapsed += _timer_Elapsed; ;
         }
 
@@ -27,6 +36,7 @@ namespace Processes.Managers
             }
         }
 
+        #region ITimeManager
         void ITimeManager.Start()
         {
             _timer.Start();
@@ -41,5 +51,6 @@ namespace Processes.Managers
         {
             _timer.Dispose();
         }
+        #endregion
     }
 }
