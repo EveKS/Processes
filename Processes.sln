@@ -1,7 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processes", "Processes\Processes.csproj", "{05A2AAF5-A185-4A96-96E5-D1AA3CA53C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessesTests", "ProcessesTests\ProcessesTests.csproj", "{3990D506-E426-4924-B162-1E70F04727DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +17,15 @@ Global
 		{05A2AAF5-A185-4A96-96E5-D1AA3CA53C5C}.Debug|x86.Build.0 = Debug|x86
 		{05A2AAF5-A185-4A96-96E5-D1AA3CA53C5C}.Release|x86.ActiveCfg = Release|x86
 		{05A2AAF5-A185-4A96-96E5-D1AA3CA53C5C}.Release|x86.Build.0 = Release|x86
+		{3990D506-E426-4924-B162-1E70F04727DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3990D506-E426-4924-B162-1E70F04727DF}.Debug|x86.Build.0 = Debug|Any CPU
+		{3990D506-E426-4924-B162-1E70F04727DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{3990D506-E426-4924-B162-1E70F04727DF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5862C52-8C26-47E2-821D-3DE763EEB9A0}
 	EndGlobalSection
 EndGlobal
