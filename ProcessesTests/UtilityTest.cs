@@ -121,17 +121,21 @@ namespace ProcessesTests
         [TestMethod()]
         public void TimeManagerEvent()
         {
-            using (ITimeManager timeManager = new TimeManager(1))
+            int timeOut = 100;
+            using (ITimeManager timeManager = new TimeManager(timeOut / 2))
             {
-                //timeManager.Start();
+                ManualResetEvent eventRaised = new ManualResetEvent(false);
+                timeManager.Start();
 
-                //var test = false;
-                //timeManager.Tick += (sender, e) =>
-                // {
-                //     test = true;
-                // };
+                var isTrue = false;
+                timeManager.Tick += (sender, e) =>
+                 {
+                     eventRaised.Set();
+                     isTrue = true;
+                 };
+                eventRaised.WaitOne(timeOut);
 
-                //Assert.IsTrue(test);
+                Assert.IsTrue(isTrue);
             }
         }
         #endregion
