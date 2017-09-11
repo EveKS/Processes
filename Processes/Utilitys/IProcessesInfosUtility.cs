@@ -2,7 +2,7 @@
 
 namespace Processes.Utilitys
 {
-    interface IProcessesInfosUtility
+    public interface IProcessesInfosUtility
     {
         ProcessDetails this[int index] { get; }
 

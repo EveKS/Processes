@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Processes.Utilitys
 {
-    class ProcessesInfosUtility : IProcessesInfosUtility
+    public class ProcessesInfosUtility : IProcessesInfosUtility
     {
         private ProcessDetails[] _processDetails;
 
