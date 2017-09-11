@@ -82,5 +82,26 @@ namespace ProcessesTests
             }
         }
         #endregion
+
+        #region ProcessDetailService
+        [TestMethod()]
+        public void ProcessDetailServiceGetNewProcessesNotNull()
+        {
+            IProcessDetailService processDetailService = new ProcessDetailService();
+            var newProcess = processDetailService.GetNewProcesses();
+
+            Assert.IsNotNull(newProcess);
+            Assert.IsInstanceOfType(newProcess, typeof(ProcessDetails[]));
+        }
+
+        [TestMethod()]
+        public void ProcessDetailServiceGetRemoveProcessIsNullOrProcessDetailsArray()
+        {
+            IProcessDetailService processDetailService = new ProcessDetailService();
+            var removeProcess = processDetailService.GetRemoveProcess();
+
+            Assert.IsTrue(removeProcess == null || typeof(ProcessDetails[]) == removeProcess.GetType());
+        }
+        #endregion
     }
 }

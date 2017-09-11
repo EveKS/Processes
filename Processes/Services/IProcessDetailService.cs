@@ -2,7 +2,7 @@
 
 namespace Processes.Services
 {
-    interface IProcessDetailService
+    public interface IProcessDetailService
     {
         ProcessDetails[] GetNewProcesses();
         ProcessDetails[] GetRemoveProcess();

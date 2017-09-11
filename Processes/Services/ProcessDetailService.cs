@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Processes.Services
 {
-    class ProcessDetailService : IProcessDetailService
+    public class ProcessDetailService : IProcessDetailService
     {
         private readonly IProcessesInfosUtility _processesInfosUtility;
         private ProcessDetails[] _processDetails;
