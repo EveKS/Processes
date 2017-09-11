@@ -4,7 +4,7 @@ using Processes.Models;
 
 namespace Processes.Services
 {
-    interface IProcessInfoService
+    public interface IProcessInfoService
     {
         ProcessInfo ProcessInfo { get; }
 
