@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Processes.Services
 {
-    public class ProcessInfoService : IDisposable, IProcessInfoService
+    public class ProcessInfoService : IProcessInfoService
     {
         private string machineName = Environment.MachineName;
         private string instanceName;
